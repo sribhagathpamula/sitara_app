@@ -1,6 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_icons/flutter_icons.dart';
-// import 'package:flutter_icons/flutter_icons.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sitara_app/Screens/sitara_eclusive.dart';
+import 'package:sitara_app/Screens/welcomepage.dart';
+
+import 'home_screen.dart';
+
+final FirebaseAuth auth = FirebaseAuth.instance;
 
 class Signuppage extends StatefulWidget {
   @override
@@ -10,7 +16,14 @@ class Signuppage extends StatefulWidget {
 class _LoginSignupScreenState extends State<Signuppage> {
   bool isSignupScreen = true;
   bool isMale = true;
+  bool other = false;
   bool isRememberMe = false;
+
+  // these three controller are added for textediting controller to
+  // save the data entered in fields
+  TextEditingController usernamecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +41,6 @@ class _LoginSignupScreenState extends State<Signuppage> {
                   image: DecorationImage(
                       image: NetworkImage(
                           "https://static.vecteezy.com/system/resources/thumbnails/002/638/193/small/s-alphabet-letter-logo-for-business-with-star-and-circle-simple-elegant-lettering-for-company-corporate-identity-branding-icon-design-in-white-and-black-vector.jpg"),
-
-                      // image: const AssetImage(
-                      //     "assets/P4-JAN-iStock-1432854572.jpg"),
                       fit: BoxFit.fill)),
               child: Container(
                 padding: const EdgeInsets.only(top: 90, left: 20),
@@ -181,18 +191,43 @@ class _LoginSignupScreenState extends State<Signuppage> {
                   child: Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          buildTextButton(
-                              Icons.facebook, "Facebook", Palette.activeColor),
-                          buildTextButton(
-                              Icons.email, "Google", Palette.activeColor),
-                        ],
-                      ),
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          // children: [
+                          //   buildTextButton(
+                          //       Icons.facebook, "Facebook", Palette.activeColor),
+                          //   buildTextButton(
+                          //       Icons.email, "Google", Palette.activeColor),
+                          // ],
+                          ),
                       Container(
-                        width: 145,
-                        child: buildTextButton(
-                            Icons.apple, "Apple ID", Palette.activeColor),
+                        width: 90,
+                        child: TextButton(
+                          onPressed: () {
+                            //write google button function here
+                            signup(context);
+                          },
+                          style: TextButton.styleFrom(
+                            side: BorderSide(width: 1, color: Colors.grey),
+                            minimumSize: Size(145, 40),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            primary: Colors.white,
+                            backgroundColor: Palette.activeColor,
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.email,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "Google",
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -210,9 +245,10 @@ class _LoginSignupScreenState extends State<Signuppage> {
       margin: EdgeInsets.only(top: 20),
       child: Column(
         children: [
+          buildTextField(Icons.mail_outline, "sitarainfo@gmail.com", false,
+              true, emailcontroller),
           buildTextField(
-              Icons.mail_outline, "sitarainfo@gmail.com", false, true),
-          buildTextField(Icons.lock_open, "*********", false, true),
+              Icons.lock_open, "*********", false, true, passwordcontroller),
           //
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -250,9 +286,11 @@ class _LoginSignupScreenState extends State<Signuppage> {
       margin: EdgeInsets.only(top: 20),
       child: Column(
         children: [
-          buildTextField(Icons.people, "User Name", false, false),
-          buildTextField(Icons.email, "email", false, true),
-          buildTextField(Icons.lock_open, "password", true, false),
+          buildTextField(
+              Icons.person, "User Name", false, false, usernamecontroller),
+          buildTextField(Icons.email, "email", false, true, emailcontroller),
+          buildTextField(
+              Icons.lock_open, "password", true, false, passwordcontroller),
           Padding(
             padding: const EdgeInsets.only(top: 10, left: 10),
             child: Row(
@@ -349,7 +387,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
                                 : Palette.textColor2,
                             border: Border.all(
                                 width: 1,
-                                color: isMale
+                                color: other
                                     ? Palette.textColor1
                                     : Colors.transparent),
                             borderRadius: BorderRadius.circular(15)),
@@ -390,32 +428,13 @@ class _LoginSignupScreenState extends State<Signuppage> {
     );
   }
 
-  TextButton buildTextButton(
-      IconData icon, String title, Color backgroundColor) {
-    return TextButton(
-      onPressed: () {},
-      style: TextButton.styleFrom(
-          side: BorderSide(width: 1, color: Colors.grey),
-          minimumSize: Size(145, 40),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          primary: Colors.white,
-          backgroundColor: backgroundColor),
-      child: Row(
-        children: [
-          Icon(
-            icon,
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            title,
-          )
-        ],
-      ),
-    );
-  }
+  // TextButton buildTextButton(
+  //   IconData icon,
+  //   String title,
+  //   Color backgroundColor,
+  // ) {
+  //   return
+  // }
 
   Widget buildBottomHalfContainer(bool showShadow) {
     var orange;
@@ -428,52 +447,75 @@ class _LoginSignupScreenState extends State<Signuppage> {
       right: 0,
       left: 0,
       child: Center(
-        child: Container(
-          height: 90,
-          width: 90,
-          padding: EdgeInsets.all(15),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(50),
-              boxShadow: [
-                if (showShadow)
-                  BoxShadow(
-                    color: Colors.black.withOpacity(.3),
-                    spreadRadius: 1.5,
-                    blurRadius: 10,
+        child: InkWell(
+          onTap: (() {
+            // write the code for firebase auth for custom login and signup here
+
+            if (isSignupScreen == false) {
+              print("signin");
+              signInWithEmailAndPassword(
+                  email: emailcontroller.text,
+                  password: passwordcontroller.text);
+            } else {
+              print("signup");
+              createUserWithEmailAndPassword(
+                  email: emailcontroller.text,
+                  password: passwordcontroller.text);
+            }
+
+            print(usernamecontroller.text);
+            print(emailcontroller.text);
+            print(passwordcontroller.text);
+            print("button pressed");
+          }),
+          child: Container(
+            height: 90,
+            width: 90,
+            padding: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  if (showShadow)
+                    BoxShadow(
+                      color: Colors.black.withOpacity(.3),
+                      spreadRadius: 1.5,
+                      blurRadius: 10,
+                    )
+                ]),
+            child: !showShadow
+                ? Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [Colors.orange, Colors.red],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight),
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(.3),
+                              spreadRadius: 1,
+                              blurRadius: 2,
+                              offset: Offset(0, 1))
+                        ]),
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
                   )
-              ]),
-          child: !showShadow
-              ? Container(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [Colors.orange, Colors.red],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight),
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(.3),
-                            spreadRadius: 1,
-                            blurRadius: 2,
-                            offset: Offset(0, 1))
-                      ]),
-                  child: Icon(
-                    Icons.arrow_forward,
-                    color: Colors.white,
-                  ),
-                )
-              : Center(),
+                : Center(),
+          ),
         ),
       ),
     );
   }
 
-  Widget buildTextField(
-      IconData icon, String hintText, bool isPassword, bool isEmail) {
+  Widget buildTextField(IconData icon, String hintText, bool isPassword,
+      bool isEmail, TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: TextField(
+        controller: controller,
         obscureText: isPassword,
         keyboardType: isEmail ? TextInputType.emailAddress : TextInputType.text,
         decoration: InputDecoration(
@@ -496,6 +538,130 @@ class _LoginSignupScreenState extends State<Signuppage> {
       ),
     );
   }
+
+  Future createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      showLoaderDialog(context);
+      final userCredential = await auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      return auth.currentUser;
+    } on FirebaseAuthException catch (e) {
+      throw (e);
+    }
+  }
+
+  Future signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      showLoaderDialog(context);
+      final userCredential = await auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      if (userCredential != null) {
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+      } else {
+        Navigator.pop(context);
+      }
+      print(userCredential);
+      return (userCredential.user);
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      AlertDialog alert = AlertDialog(
+        content: Row(
+          children: [
+            Container(
+              height: 150,
+              width: 200,
+              child: Column(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 200,
+                    padding: EdgeInsets.only(right: 13.0),
+                    child: Center(
+                      child: Text(
+                        e.toString(),
+                        overflow: TextOverflow.visible,
+                        style: const TextStyle(
+                          fontSize: 13.0,
+                          fontFamily: 'Roboto',
+                          color: Color(0xFF212121),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("ok"))
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
+      print(e);
+    }
+  }
+}
+
+Future<void> signup(BuildContext context) async {
+  final GoogleSignIn googleSignIn = GoogleSignIn();
+
+  final GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
+  if (googleSignInAccount != null) {
+    final GoogleSignInAuthentication googleSignInAuthentication =
+        await googleSignInAccount.authentication;
+    final AuthCredential authCredential = GoogleAuthProvider.credential(
+        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuthentication.accessToken);
+
+    // Getting users credential
+    UserCredential result = await auth.signInWithCredential(authCredential);
+    User? user = result.user;
+    print(user);
+
+    // ignore: use_build_context_synchronously
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => HomePage()));
+  }
+}
+
+showLoaderDialog(BuildContext context) {
+  AlertDialog alert = AlertDialog(
+    content: new Row(
+      children: [
+        CircularProgressIndicator(),
+        Container(margin: EdgeInsets.only(left: 7), child: Text("Loading...")),
+      ],
+    ),
+  );
+  showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
 
 class Palette {

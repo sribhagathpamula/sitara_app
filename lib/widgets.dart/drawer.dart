@@ -74,16 +74,16 @@ class _CDrawerState extends State<CDrawer> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                          builder: (BuildContext context) => ProfileScreen(
-                                Email: "",
-                                image: '',
-                                name: '',
-                                userLoggedIn: true,
-                              )),
-                    );
+                    // Navigator.push<void>(
+                    //   context,
+                    //   MaterialPageRoute<void>(
+                    //       builder: (BuildContext context) => ProfileScreen(
+                    //             Email: "",
+                    //             image: '',
+                    //             name: '',
+                    //             userLoggedIn: true,
+                    //           )),
+                    // );
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

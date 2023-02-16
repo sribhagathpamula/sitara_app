@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1064574681945",
+    "project_id": "sitara-e7516",
+    "storage_bucket": "sitara-e7516.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064574681945:android:b289dda17fbc7c84e44248",
+        "android_client_info": {
+          "package_name": "com.example.sitara_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064574681945-7sbnh3f4q360s8mkqh6rgcdn960hb1pv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sitara_app",
+            "certificate_hash": "839ad7aac7546143878b14915c40305d6503c0ae"
+          }
+        },
+        {
+          "client_id": "1064574681945-6li2kc6milrs84h4fv4vsv42uuhisoli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPXWa-CkXzyO2rYMbzzHttXdXR1Beoz6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064574681945-6li2kc6milrs84h4fv4vsv42uuhisoli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

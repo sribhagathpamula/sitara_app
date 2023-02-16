@@ -65,12 +65,12 @@ class TermsPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.asset(
-            'assets/pol.jpg',
-            width: 600,
-            height: 150,
-            fit: BoxFit.fill,
-          ),
+          // Image.asset(
+          //   'assets/pol.jpg',
+           // width: 600,
+           // height: 150,
+          //  fit: BoxFit.fill,
+         // ),
           titleSection,
           textSection,
         ],

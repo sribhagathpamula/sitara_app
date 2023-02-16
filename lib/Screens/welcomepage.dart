@@ -34,44 +34,35 @@ class WelcomePage extends StatelessWidget {
                     Text("Make Reservation In Real Time"),
                   ],
                 ),
-                Container(
-                  height: 45,
-                  width: 300,
-                  color: Colors.green,
-                  child: ElevatedButton(
-                    // shape: RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.circular(30)),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => new Signuppage()));
-                    },
-                    child: Text(
-                      "Login Page",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 45,
-                  width: 300,
-                  color: Colors.red,
-                  child: ElevatedButton(
-                    // shape: RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.circular(30)),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => HomePage()));
-                      //signup screen
-                    },
-                    child: Text(
-                      "Sign Up",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new Signuppage()));
+                  },
+                  child: Container(
+                      height: 65,
+                      width: 65,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                colors: [Colors.orange, Colors.red],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black.withOpacity(.3),
+                                  spreadRadius: 1,
+                                  blurRadius: 2,
+                                  offset: Offset(0, 1))
+                            ]),
+                        child: Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                        ),
+                      )),
                 ),
               ],
             ),
@@ -80,10 +71,4 @@ class WelcomePage extends StatelessWidget {
       ),
     );
   }
-
-  RaisedButton(
-      {required MaterialColor color,
-      required RoundedRectangleBorder shape,
-      required Null Function() onPressed,
-      required Text child}) {}
 }
