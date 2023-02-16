@@ -30,13 +30,10 @@ class HomePage extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(
-                Icons.shopping_cart,
+                Icons.logout,
                 size: 30,
               ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => OrdersPage()));
-              },
+              onPressed: () {},
             ),
           ],
           bottom: TabBar(
@@ -85,11 +82,27 @@ class HomePage extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Page1(),
-            Page2(),
-            Page3(),
-            Page4(),
-            Page0(),
+            Container(
+              child: Text("1"),
+            ),
+            Container(
+              child: Text("2"),
+            ),
+            Container(
+              child: Text("3"),
+            ),
+            Container(
+              child: Text("4"),
+            ),
+            Container(
+              child: Text("5"),
+            ),
+
+            // Page1(),
+            // Page2(),
+            // Page3(),
+            // Page4(),
+            // Page0(),
           ],
         ),
       ),
