@@ -126,25 +126,33 @@ class _Page3State extends State<Page3> {
                 bottonContainer(
                     image: 'assets/Chicken-lollipop-scaled.jpg',
                     name: 'Chicken Lollipop',
+                    price: 200,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/Mutton-Biryani.webp',
+                    name: 'Mutton Biryani',
                     price: 400,
                     discription:
                         "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                    image: 'assets/biryani.png',
-                    name: 'Mutton Biriyani',
-                    price: 500,
+                    image: 'assets/Prawn-Biryani-Recipe.jpg',
+                    name: 'Prawn Biryani',
+                    price: 300,
                     discription:
                         "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                    image: 'assets/daal.png',
-                    name: 'Dal\nFry',
-                    price: 600,
-                    discription:
-                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
-                bottonContainer(
-                    image: 'assets/bhindim.png',
-                    name: 'Bhindi\nmasala',
+                    image:
+                        'assets/Dinner_Lunch_Plate_Madras_Lamb_Curry_Ghee_Rice_Salad_Curd_Papad-12.jpg',
+                    name: 'Ghee Rice with mutton curry',
                     price: 200,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        'assets/Dinner_Lunch_Plate_Madras_Lamb_Curry_Ghee_Rice_Salad_Curd_Papad-12.jpg',
+                    name: 'Veg Biryani',
+                    price: 150,
                     discription:
                         "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
               ],
