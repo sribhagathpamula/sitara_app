@@ -39,10 +39,10 @@ class _Page4State extends State<Page4> {
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
             onTap: () {
-              Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) => new DetailPage()));
+              // Navigator.push(
+              //     context,
+              //     new MaterialPageRoute(
+              //         builder: (context) => new DetailPage()));
             },
           ),
         ],

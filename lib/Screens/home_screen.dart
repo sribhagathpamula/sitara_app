@@ -68,13 +68,13 @@ class HomePage extends StatelessWidget {
                 Tab(
                   child: Align(
                     alignment: Alignment.center,
-                    child: Text("Cold Drinks"),
+                    child: Text("Refreshments"),
                   ),
                 ),
                 Tab(
                   child: Align(
                     alignment: Alignment.center,
-                    child: Text("Offer"),
+                    child: Text("Sitara Exculsive"),
                   ),
                 ),
               ]),
@@ -82,9 +82,7 @@ class HomePage extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Container(
-              child: Text("1"),
-            ),
+            Page1(),
             Container(
               child: Text("2"),
             ),

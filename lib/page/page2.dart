@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-  
+
 class Page2 extends StatefulWidget {
   @override
   _Page2State createState() => _Page2State();
@@ -7,7 +7,10 @@ class Page2 extends StatefulWidget {
 
 class _Page2State extends State<Page2> {
   Widget bottonContainer(
-      {required String image, required int price, required String name}) {
+      {required String image,
+      required int price,
+      required String name,
+      required String discription}) {
     return Container(
       height: 270,
       width: 220,
@@ -98,46 +101,77 @@ class _Page2State extends State<Page2> {
             child: GridView.count(
               shrinkWrap: false,
               primary: false,
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               childAspectRatio: 0.8,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20,
               children: [
                 bottonContainer(
-                  image: 'assets/tea.png',
-                  name: 'Tea',
-                  price: 20,
-                ),
+                    image: 'assets/istockphoto-1306083224-170667a.jpg',
+                    name: 'Idly',
+                    price: 25,
+                    discription:
+                        "We could call it freshly steamed savory white cakes made from fermented rice and lentil batter for the gora lag...refresh ur morning with best idly at sitara."),
                 bottonContainer(
-                  image: 'assets/gtea.png',
-                  name: 'Green\nTea',
-                  price: 20,
-                ),
+                    image: 'assets/pexels-saveurs-secretes-5560763.jpg',
+                    name: 'Dosa',
+                    price: 45,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/pohaa.png',
-                  name: 'Poha',
-                  price: 50,
-                ),
+                    image:
+                        'assets/360_F_280407029_4QDsj9xPmv9yFvsGzSH4UnHo680KjlJe.jpg',
+                    name: 'Pongal',
+                    price: 60,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/mis.png',
-                  name: 'Misal\nPav',
-                  price: 60,
-                ),
+                    image:
+                        'assets/36155acb0f7245844f6e5ba27031b5a1_featured_v2.jpg.webp',
+                    name: 'Kodi Kura & Chitti garee',
+                    price: 90,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/upma.png',
-                  name: 'Upma',
-                  price: 50,
-                ),
+                    image: 'assets/maxresdefault.jpg',
+                    name: 'Pesarattu & upma',
+                    price: 70,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/vadapav.png',
-                  name: 'Vada\npav',
-                  price: 10,
-                ),
+                    image:
+                        'assets/onion-dosa-plain-recipe-finely-chopped-topping-over-which-gives-very-yummy-taste-also-can-be-eaten-195902443.jpg',
+                    name: 'Onion Dosa',
+                    price: 70,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/masaladosa.png',
-                  name: 'Masala\nDosa',
-                  price: 80,
-                ),
+                    image:
+                        'assets/360_F_189452136_gJBG4ZRXY9NnZZCGV2s8QhObmpeerJTO.jpg',
+                    name: 'Masala Dosa',
+                    price: 80,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        'assets/Instant-Rava-Dosa-Recipe-Onion-Rava-Dosa-V1.jpg',
+                    name: 'Rava Dosa',
+                    price: 80,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/chicken-dosa.jpg',
+                    name: 'Chicken Keema Dosa',
+                    price: 90,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        'assets/rice-puri-with-mutton-curry-noorsrecipes.jpeg',
+                    name: 'Poori with Mutton Curry',
+                    price: 190,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
               ],
             ),
           )

@@ -1,5 +1,6 @@
 import 'package:sitara_app/Screens/detailspage.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Page1 extends StatefulWidget {
   @override
@@ -7,51 +8,81 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
+  List imagesString = [
+    "assets/poori-masala-kizhangu.jpg",
+    "assets/poori-masala-kizhangu.jpg",
+    'assets/kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-118567640.jpg',
+    'assets/burger-vs-sandwhich.jpg'
+        'assets/istockphoto-1305452646-170667a.jpg',
+    'assets/burger-vs-sandwhich.jpg'
+        "assets/poori-masala-kizhangu.jpg",
+  ];
+
   Widget bottonContainer(
-      {required String image, required int price, required String name}) {
+      {required String image,
+      required int price,
+      required String name,
+      required String discription}) {
     return Container(
-      height: 270,
-      width: 220,
+      height: 300,
+      width: 250,
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
-            new BoxShadow(color: Colors.black87, blurRadius: 5.0),
+            BoxShadow(color: Colors.black87, blurRadius: 5.0),
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ClipRRect(
-            child: Image.asset(image),
-            // backgroundImage: AssetImage(image),
-          ),
-          ListTile(
-            leading: Text(
-              name,
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-            trailing: Text(
-              "\Rs.$price",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
+          InkWell(
             onTap: () {
               Navigator.push(
                   context,
                   new MaterialPageRoute(
-                      builder: (context) => new DetailPage()));
+                      builder: (context) => DetailPage(
+                            image: image,
+                            name: name,
+                            price: price,
+                            discription: discription,
+                          )));
+            },
+            child: Container(
+              color: Colors.red,
+              height: 350,
+              width: 350,
+              child: ClipRRect(
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Text(
+              name,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+            trailing: Text(
+              "\Rs.$price",
+              style: TextStyle(fontSize: 16, color: Colors.black),
+            ),
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.shopping_cart_checkout,
+            ),
+            onPressed: () {
+              // Navigator.push(
+              //     context,
+              //     new MaterialPageRoute(
+              //         builder: (context) => new DetailPage()));
             },
           ),
-          // IconButton(
-          //   icon: Icon(
-          //     Icons.add_shopping_cart,
-          //   ),
-          //   onPressed: () {
-          //     Navigator.push(
-          //         context,
-          //         new MaterialPageRoute(
-          //             builder: (context) => new DetailPage()));
-          //   },
-          // ),
         ],
       ),
     );
@@ -59,7 +90,7 @@ class _Page1State extends State<Page1> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -70,9 +101,9 @@ class _Page1State extends State<Page1> {
             child: TextField(
                 decoration: InputDecoration(
                     hintText: "Search Food",
-                    hintStyle: TextStyle(color: Colors.black),
+                    hintStyle: const TextStyle(color: Colors.black),
                     // border: OutlineInputBorder(),
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.search,
                       color: Colors.black,
                     ),
@@ -96,7 +127,8 @@ class _Page1State extends State<Page1> {
           //     mainAxisAlignment: MainAxisAlignment.center,
           //     children: [
           //       CircleAvatar(
-          //         backgroundImage: AssetImage('assets/img1.png'),
+          //         backgroundImage: AssetImage(
+          //             'assets/chicken-fried-rice-fast-food-style-recipe.png'),
           //       ),
           //       ListTile(
           //         leading: Text(
@@ -111,47 +143,95 @@ class _Page1State extends State<Page1> {
           //     ],
           //   ),
           // ),
+
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
-            height: 570,
+            height: 590,
             child: GridView.count(
               shrinkWrap: false,
               primary: false,
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               childAspectRatio: 0.8,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
               children: [
-                bottonContainer(
-                  image: 'assets/mis.png',
-                  name: 'Misal \nPav',
-                  price: 60,
+                CarouselSlider(
+                  options: CarouselOptions(
+                    height: 300,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 0.8,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    enlargeFactor: 0.3,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                  items: [0, 1, 2, 3, 4].map((i) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          decoration: BoxDecoration(color: Colors.amber),
+                          child: ClipRRect(
+                            child: Image.asset(
+                              imagesString[i],
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
                 ),
                 bottonContainer(
-                  image: 'assets/biryani.png',
-                  name: 'Chicken Birayani',
-                  price: 120,
-                ),
+                    image: 'assets/poori-masala-kizhangu.jpg',
+                    name: 'Poori Masala',
+                    price: 70,
+                    discription:
+                        "Poori Masala is a South Indian dish of curried  potatoes made to serve as a side with poori, an indian fried bread. Poori masala also known as poori curry is made with boiled potatoes, onions, tomatoes, whole species and curry leaves. surprisingly this is one of those dishes made with minimum spices yet it tastes super delicious and flavorsome. so sitara provides u the best poori masala."),
                 bottonContainer(
-                  image: 'assets/gtea.png',
-                  name: 'Green\nTea',
-                  price: 20,
-                ),
+                    image:
+                        'assets/kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-118567640.jpg',
+                    name: 'Chicken Dejaj Kebab',
+                    price: 220,
+                    discription:
+                        "Chicken Kebab recipe - Make the best delicious, soft , succulent & flavorful chicken kebabs at sitara. Kebab is a piece of food, mostly meat grilled over charcoal fire. There are so many Kebab varieties out there which are very popular in the sitara dinein and Takeaways. One of the Satisified dish with beer."),
                 bottonContainer(
-                  image: 'assets/lburger.png',
-                  name: 'Luger\nBurger',
-                  price: 60,
-                ),
+                    image: 'assets/istockphoto-1305452646-170667a.jpg',
+                    name: 'Chicken Biriyani',
+                    price: 195,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/pavbhaji.png',
-                  name: 'Pav\nBhaji',
-                  price: 80,
-                ),
+                    image: 'assets/burger-vs-sandwhich.jpg',
+                    name: 'Burger & Sandwich',
+                    price: 160,
+                    discription:
+                        "Classic Burger with Lettuce, onions,tomatoes & yummy crispy chicken patty filled in with our secret home made mayonnaise between freshly baked hand made buns...Food for the soul.... Temptations will be satisified in Sitara."),
                 bottonContainer(
-                  image: 'assets/pizza.png',
-                  name: 'Pizza',
-                  price: 140,
-                ),
+                    image: 'assets/52416693.cms.webp',
+                    name: 'Pav Bhaji & Chat Specials',
+                    price: 80,
+                    discription:
+                        "Buttery toasted Pav(2 pieces) served with mashed vegetables cooked in butter & in-house blend of pav bhaji masala accompamied with chopped onions and a wedge of lime.......Taste the real pav bhaji at the Sitara exculsive."),
+                bottonContainer(
+                    image: 'assets/pizza-3007395__480.jpg',
+                    name: 'Pizza',
+                    price: 140,
+                    discription:
+                        "You Name It and we load it! A pizza Baked with Tomato sauce,Mozzarella Cheese,Capsicum,Onion,Tomato,Jalapeno and Olives(Served with complimentary Garlic oil)....and you can customize ur pizza with different add on's panner , mushroom , chicken , bbq chicken etc at ur favorite sitara"),
+                bottonContainer(
+                    image:
+                        'assets/different-types-mojito-cocktail-dark-brown_93675-16775.jpg.webp',
+                    name: 'Mojitos',
+                    price: 110,
+                    discription:
+                        "Mojitos are bubbly rum cocktails that taste minty-fresh, citrusy and a little sweet. Club soda stretches out the flavors to create an afternoon-worthy sipper. Mojitos are ultra refreshing on warm days, and I feel like I’m on vacation every time I get my hands on one..... Taste the best and refreshing mojitos at the sitara(with alcohol or non-alcohol)"),
               ],
             ),
           )
