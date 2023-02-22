@@ -8,7 +8,10 @@ class Page3 extends StatefulWidget {
 
 class _Page3State extends State<Page3> {
   Widget bottonContainer(
-      {required String image, required int price, required String name}) {
+      {required String image,
+      required int price,
+      required String name,
+      required String discription}) {
     return Container(
       height: 270,
       width: 220,
@@ -34,10 +37,10 @@ class _Page3State extends State<Page3> {
               "\Rs.$price",
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
-            onTap: () {
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (context) => DetailPage()));
-            },
+            // onTap: () {
+            //   Navigator.push(context,
+            //       new MaterialPageRoute(builder: (context) => DetailPage()));
+            // },
           ),
         ],
       ),
@@ -109,35 +112,41 @@ class _Page3State extends State<Page3> {
               mainAxisSpacing: 20,
               children: [
                 bottonContainer(
-                  image: 'assets/chicktik.png',
-                  name: 'Chicken\nTikka',
-                  price: 130,
-                ),
+                    image: 'assets/CREAM-OF-CHICKEN-SOUP-960-768x960.jpg',
+                    name: 'Chicken creamy soup',
+                    price: 130,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/pantik.png',
-                  name: 'Paneer\nTikka',
-                  price: 300,
-                ),
+                    image: 'assets/paneer-tikka.jpg',
+                    name: 'Paneer Tikka',
+                    price: 190,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/vegb.png',
-                  name: 'Veg\nBiryani',
-                  price: 400,
-                ),
+                    image: 'assets/Chicken-lollipop-scaled.jpg',
+                    name: 'Chicken Lollipop',
+                    price: 400,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/biryani.png',
-                  name: 'NonVeg\nBiryani',
-                  price: 500,
-                ),
+                    image: 'assets/biryani.png',
+                    name: 'Mutton Biriyani',
+                    price: 500,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/daal.png',
-                  name: 'Dal\nFry',
-                  price: 600,
-                ),
+                    image: 'assets/daal.png',
+                    name: 'Dal\nFry',
+                    price: 600,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/bhindim.png',
-                  name: 'Bhindi\nmasala',
-                  price: 200,
-                ),
+                    image: 'assets/bhindim.png',
+                    name: 'Bhindi\nmasala',
+                    price: 200,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
               ],
             ),
           )
