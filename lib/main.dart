@@ -1,5 +1,5 @@
 import 'dart:async';
-// adding commet  adding for computer 1
+// adding commet  
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sitara_app/Screens/home_screen.dart';
 import 'package:sitara_app/Screens/orderspage.dart';
