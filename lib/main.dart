@@ -1,5 +1,5 @@
 import 'dart:async';
-// adding commet  
+// adding commet
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sitara_app/Screens/home_screen.dart';
 import 'package:sitara_app/Screens/orderspage.dart';
@@ -44,7 +44,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState ggg
+    // TODO: implement initState  kkk
     Timer(
         Duration(seconds: 3),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
