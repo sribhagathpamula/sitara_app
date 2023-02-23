@@ -13,13 +13,13 @@ class WelcomePage extends StatelessWidget {
               child: Center(
                   child: Image.network(
                       "https://i.pinimg.com/736x/db/6c/1e/db6c1ea48d8fa43f73d3bdab38f9cc8e.jpg")),
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(32),
-            decoration: const BoxDecoration(
-              image: NetworkImage(
-                'https://www.itl.cat/pngfile/big/321-3215719_star.jpg')),
+              // alignment: Alignment.center,
+              // padding: const EdgeInsets.all(32),
+              // decoration: const BoxDecoration(
+              //   image: NetworkImage(
+              //     'https://www.itl.cat/pngfile/big/321-3215719_star.jpg')),
 
-            ),
+              // ),
             ),
           ),
           Expanded(
@@ -33,7 +33,6 @@ class WelcomePage extends StatelessWidget {
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.green,
-                    
                   ),
                 ),
                 Column(

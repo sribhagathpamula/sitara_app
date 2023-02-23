@@ -455,27 +455,64 @@ class _LoginSignupScreenState extends State<Signuppage> {
               print("signin");
               print(emailcontroller.text);
               print(passwordcontroller.text);
-              if (emailcontroller.text.isNotEmpty) {
-                AlertDialog alert = AlertDialog(
-                  content: Row(
-                    children: [
-                      CircularProgressIndicator(),
-                      Container(
+              if (emailcontroller.text.isEmpty) {
+                showDialog(
+                  barrierDismissible: true,
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      content: Container(
+                          height: 100,
                           margin: EdgeInsets.only(left: 7),
-                          child: Text("Enter email is if conditon...")),
-                    ],
-                  ),
+                          child: Column(
+                            children: [
+                              Text(
+                                "email field is empty",
+                                overflow: TextOverflow.visible,
+                                maxLines: 4,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                                softWrap: false,
+                              ),
+                              Spacer(),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    "ok",
+                                  ))
+                            ],
+                          )),
+                    );
+                  },
                 );
               } else {
-                AlertDialog alert = AlertDialog(
-                  content: Row(
-                    children: [
-                      CircularProgressIndicator(),
-                      Container(
-                          margin: EdgeInsets.only(left: 7),
-                          child: Text("Enter email is empty...")),
-                    ],
-                  ),
+                showDialog(
+                  barrierDismissible: true,
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      content: Row(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(left: 7),
+                              child: Expanded(
+                                child: Text(
+                                  """please enter valid else case details""",
+                                  overflow: TextOverflow.visible,
+                                  maxLines: 4,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                  softWrap: false,
+                                ),
+                              )),
+                        ],
+                      ),
+                    );
+                  },
                 );
               }
               // signInWithEmailAndPassword(
@@ -492,15 +529,32 @@ class _LoginSignupScreenState extends State<Signuppage> {
             print(emailcontroller.text);
             print(passwordcontroller.text);
             print("button pressed");
-            showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (BuildContext context) {
-                return Container(
-                  child: Text("tesxt"),
-                );
-              },
-            );
+            // showDialog(
+            //   barrierDismissible: true,
+            //   context: context,
+            //   builder: (BuildContext context) {
+            //     return AlertDialog(
+            //       content: Row(
+            //         children: [
+            //           Container(
+            //             margin: EdgeInsets.only(left: 7),
+            //             child: Expanded(
+            //               child: Text(
+            //                 """please enter valid details""",
+            //                 overflow: TextOverflow.visible,
+            //                 maxLines: 4,
+            //                 style: TextStyle(
+            //                   fontSize: 16,
+            //                 ),
+            //                 softWrap: false,
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     );
+            //   },
+            // );
           }),
           child: Container(
             height: 90,
@@ -657,6 +711,8 @@ class _LoginSignupScreenState extends State<Signuppage> {
     }
   }
 }
+
+text(String s) {}
 
 Future<void> signup(BuildContext context) async {
   final GoogleSignIn googleSignIn = GoogleSignIn();
