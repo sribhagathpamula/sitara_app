@@ -453,20 +453,54 @@ class _LoginSignupScreenState extends State<Signuppage> {
 
             if (isSignupScreen == false) {
               print("signin");
-              signInWithEmailAndPassword(
-                  email: emailcontroller.text,
-                  password: passwordcontroller.text);
+              print(emailcontroller.text);
+              print(passwordcontroller.text);
+              if (emailcontroller.text.isNotEmpty) {
+                AlertDialog alert = AlertDialog(
+                  content: Row(
+                    children: [
+                      CircularProgressIndicator(),
+                      Container(
+                          margin: EdgeInsets.only(left: 7),
+                          child: Text("Enter email is if conditon...")),
+                    ],
+                  ),
+                );
+              } else {
+                AlertDialog alert = AlertDialog(
+                  content: Row(
+                    children: [
+                      CircularProgressIndicator(),
+                      Container(
+                          margin: EdgeInsets.only(left: 7),
+                          child: Text("Enter email is empty...")),
+                    ],
+                  ),
+                );
+              }
+              // signInWithEmailAndPassword(
+              //     email: emailcontroller.text,
+              //     password: passwordcontroller.text);
             } else {
               print("signup");
-              createUserWithEmailAndPassword(
-                  email: emailcontroller.text,
-                  password: passwordcontroller.text);
+              // createUserWithEmailAndPassword(
+              //     email: emailcontroller.text,
+              //     password: passwordcontroller.text);
             }
 
             print(usernamecontroller.text);
             print(emailcontroller.text);
             print(passwordcontroller.text);
             print("button pressed");
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (BuildContext context) {
+                return Container(
+                  child: Text("tesxt"),
+                );
+              },
+            );
           }),
           child: Container(
             height: 90,
@@ -648,7 +682,7 @@ Future<void> signup(BuildContext context) async {
 
 showLoaderDialog(BuildContext context) {
   AlertDialog alert = AlertDialog(
-    content: new Row(
+    content: Row(
       children: [
         CircularProgressIndicator(),
         Container(margin: EdgeInsets.only(left: 7), child: Text("Loading...")),

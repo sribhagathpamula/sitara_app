@@ -7,9 +7,9 @@ import 'package:sitara_app/Screens/privacypage.dart';
 import 'package:sitara_app/Screens/settings_screen.dart';
 import 'package:sitara_app/Screens/termspage.dart';
 import 'package:sitara_app/Screens/welcomepage.dart';
-import 'package:sitara_app/homepage.dart';
+
 import 'package:sitara_app/page/page%204.dart';
-import 'package:sitara_app/page/page0.dart';
+
 import 'package:sitara_app/page/page1.dart';
 import 'package:sitara_app/page/page2.dart';
 import 'package:sitara_app/page/page3.dart';
@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: appTitle,
-        // home: SplashScreen());
-        home: HomePage());
+        home: SplashScreen());
+    // home: HomePage());
   }
 }
 

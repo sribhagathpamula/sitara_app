@@ -1,11 +1,13 @@
 import 'package:sitara_app/Screens/orderspage.dart';
 import 'package:sitara_app/Screens/settings_screen.dart';
 import 'package:sitara_app/page/page%204.dart';
-import 'package:sitara_app/page/page0.dart';
+
 import 'package:sitara_app/page/page1.dart';
 import 'package:sitara_app/page/page2.dart';
 import 'package:sitara_app/page/page3.dart';
 import 'package:flutter/material.dart';
+
+import '../page/page0.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -82,25 +84,11 @@ class HomePage extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
+            Page0(),
             Page1(),
-            Container(
-              child: Text("2"),
-            ),
-            Container(
-              child: Text("3"),
-            ),
-            Container(
-              child: Text("4"),
-            ),
-            Container(
-              child: Text("5"),
-            ),
-
-            // Page1(),
-            // Page2(),
-            // Page3(),
-            // Page4(),
-            // Page0(),
+            Page2(),
+            Page3(),
+            Page4(),
           ],
         ),
       ),

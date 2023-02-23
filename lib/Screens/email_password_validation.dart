@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sitara_app/Screens/home_screen.dart';
-void main() {
-  runApp(const RaisedButton(onPressed: (), children: [],));
-}
- 
+
 class RaisedButton extends StatelessWidget {
-  const RaisedButton({Key? key, required Null Function() onPressed, required List<Text> children}) : super(key: key);
- 
+  const RaisedButton(
+      {Key? key,
+      required Null Function() onPressed,
+      required List<Text> children})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class RaisedButton extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:   HomePage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -40,12 +40,12 @@ class _MyFormState extends State<MyForm> {
         children: [
           TextFormField(
             decoration: InputDecoration(labelText: 'Email'),
-            validator: EmailValidator.validate,
+            // validator: EmailValidator.validate,
             onSaved: (value) => _email = value!,
           ),
           TextFormField(
             decoration: InputDecoration(labelText: 'Password'),
-            validator: PasswordValidator.validate,
+            // validator: PasswordValidator.validate,
             onSaved: (value) => _password = value!,
             obscureText: true,
           ),
@@ -53,7 +53,6 @@ class _MyFormState extends State<MyForm> {
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                
               }
             },
             children: [const Text('Submit')],
@@ -63,6 +62,7 @@ class _MyFormState extends State<MyForm> {
     );
   }
 }
+
 class EmailValidator {
   static String? validate(String value) {
     if (value.isEmpty) {

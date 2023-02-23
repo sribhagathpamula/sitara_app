@@ -12,7 +12,14 @@ class WelcomePage extends StatelessWidget {
             child: Container(
               child: Center(
                   child: Image.network(
-                      "https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg")),
+                      "https://i.pinimg.com/736x/db/6c/1e/db6c1ea48d8fa43f73d3bdab38f9cc8e.jpg")),
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(32),
+            decoration: const BoxDecoration(
+              image: NetworkImage(
+                'https://www.itl.cat/pngfile/big/321-3215719_star.jpg')),
+
+            ),
             ),
           ),
           Expanded(
@@ -26,12 +33,14 @@ class WelcomePage extends StatelessWidget {
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.green,
+                    
                   ),
                 ),
                 Column(
                   children: [
                     Text("Order Food From Ours Kitchen and "),
                     Text("Make Reservation In Real Time"),
+                    Text("A IVAGRAHB MEMORY")
                   ],
                 ),
                 InkWell(

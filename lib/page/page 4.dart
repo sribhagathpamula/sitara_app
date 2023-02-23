@@ -8,7 +8,10 @@ class Page4 extends StatefulWidget {
 
 class _Page4State extends State<Page4> {
   Widget bottonContainer(
-      {required String image, required int price, required String name}) {
+      {required String image,
+      required int price,
+      required String name,
+      required String discription}) {
     return Container(
       height: 270,
       width: 220,
@@ -109,46 +112,69 @@ class _Page4State extends State<Page4> {
             child: GridView.count(
               shrinkWrap: false,
               primary: false,
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               childAspectRatio: 0.8,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20,
               children: [
                 bottonContainer(
-                  image: 'assets/mojito.png',
-                  name: 'Mojito',
-                  price: 100,
-                ),
+                    image: 'assets/neapolitan-ice-cream-15779155.jpg',
+                    name: 'Ice Cream',
+                    price: 110,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/bloodym.png',
-                  name: 'Bloody\nMary',
-                  price: 300,
-                ),
+                    image:
+                        'assets/82388961-poznan-poland-may-19-2017-global-soft-drink-market-is-dominated-by-brands-of-few-multinational.jpg',
+                    name: 'soft Drinks',
+                    price: 30,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/mangda.png',
-                  name: 'Mango\nDaiquiri',
-                  price: 140,
-                ),
+                    image:
+                        'assets/Simply-Recipes-Mango-Daiquiri-LEAD-3-96096b8ecf9f46d0a55f78ea7abe7289.jpg',
+                    name: 'Mango Daiquiri',
+                    price: 180,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/oraj.png',
-                  name: 'Orange\njuice',
-                  price: 500,
-                ),
+                    image: 'assets/khubani-ka-meetha-recipe-3.jpg',
+                    name: 'Khubani Ka Meeta',
+                    price: 100,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/pine.png',
-                  name: 'Pine\napplejuice',
-                  price: 600,
-                ),
+                    image: 'assets/Pink-Lady-Cocktail-Square-1.jpg',
+                    name: 'Pink Lady',
+                    price: 110,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/mangda.png',
-                  name: 'Apple\njuice',
-                  price: 600,
-                ),
+                    image: 'assets/Shahi-Hot-Gulabjamun-with-I.jpg',
+                    name: 'Gulab Jamun with Ice cream',
+                    price: 120,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                  image: 'assets/appbe.png',
-                  name: 'Apple\nBerry',
-                  price: 600,
-                ),
+                    image: 'assets/istockphoto-499515902-612x612.jpg',
+                    name: 'Fresh Desi Lassi',
+                    price: 70,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        ' assets/Recipe_For_Beginners_Fruit_Custard_Recipe_With_Custard_Powder-1.jpg',
+                    name: 'Custard Bowl',
+                    price: 80,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        'assets/sweet-rabdi-lachha-rabri-basundi-made-with-pure-milk-garnished-with-dry-fruits-served-bowl-moody-background-selective-focus_466689-30649.jpg ',
+                    name: 'Rabdi',
+                    price: 90,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
               ],
             ),
           )

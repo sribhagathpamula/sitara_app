@@ -12,10 +12,10 @@ class _Page1State extends State<Page1> {
     "assets/poori-masala-kizhangu.jpg",
     "assets/poori-masala-kizhangu.jpg",
     'assets/kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-118567640.jpg',
-    'assets/burger-vs-sandwhich.jpg'
-        'assets/istockphoto-1305452646-170667a.jpg',
-    'assets/burger-vs-sandwhich.jpg'
-        "assets/poori-masala-kizhangu.jpg",
+    'assets/burger-vs-sandwhich.jpg',
+    'assets/istockphoto-1305452646-170667a.jpg',
+    'assets/burger-vs-sandwhich.jpg',
+    "assets/poori-masala-kizhangu.jpg",
   ];
 
   Widget bottonContainer(
@@ -161,14 +161,13 @@ class _Page1State extends State<Page1> {
                     aspectRatio: 16 / 9,
                     viewportFraction: 0.8,
                     initialPage: 0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
+                    enableInfiniteScroll: false,
                     autoPlay: true,
                     autoPlayInterval: Duration(seconds: 3),
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
                     autoPlayCurve: Curves.fastOutSlowIn,
                     enlargeCenterPage: true,
-                    enlargeFactor: 0.3,
+                    enlargeFactor: 0.4,
                     scrollDirection: Axis.horizontal,
                   ),
                   items: [0, 1, 2, 3, 4].map((i) {
