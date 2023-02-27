@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Alertbox extends StatelessWidget {
+class Alertbox extends StatefulWidget {
   const Alertbox({super.key});
 
+  @override
+  State<Alertbox> createState() => _AlertboxState();
+}
+
+class _AlertboxState extends State<Alertbox> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

@@ -6,13 +6,19 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Expanded(
             child: Container(
+              color: Colors.white,
               child: Center(
-                  child: Image.network(
-                      "https://i.pinimg.com/736x/db/6c/1e/db6c1ea48d8fa43f73d3bdab38f9cc8e.jpg")),
+                  child: Center(
+                child: Image.asset(
+                  'assets/20230227_105904.png',
+                ),
+              )),
+
               // alignment: Alignment.center,
               // padding: const EdgeInsets.all(32),
               // decoration: const BoxDecoration(

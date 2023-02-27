@@ -56,6 +56,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(child: Container(child: Text("Welcome to Sitara"))));
+        backgroundColor: Colors.black,
+        body: Center(
+            child: Image.asset(
+          'assets/20230227_105904.png',
+        )));
   }
 }

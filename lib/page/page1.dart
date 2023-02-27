@@ -2,12 +2,12 @@ import 'package:sitara_app/Screens/detailspage.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class Page1 extends StatefulWidget {
+class BreakFast extends StatefulWidget {
   @override
-  _Page1State createState() => _Page1State();
+  _BreakFastState createState() => _BreakFastState();
 }
 
-class _Page1State extends State<Page1> {
+class _BreakFastState extends State<BreakFast> {
   List imagesString = [
     "assets/poori-masala-kizhangu.jpg",
     "assets/poori-masala-kizhangu.jpg",

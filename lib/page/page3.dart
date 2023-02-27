@@ -25,8 +25,10 @@ class _Page3State extends State<Page3> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ClipRRect(
-            child: Image.asset(image),
-            // backgroundImage: AssetImage(image),
+            child: Image.asset(
+              image,
+            ),
+            //  backgroundImage: AssetImage(image),
           ),
           ListTile(
             leading: Text(
@@ -106,7 +108,7 @@ class _Page3State extends State<Page3> {
             child: GridView.count(
               shrinkWrap: false,
               primary: false,
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               childAspectRatio: 0.8,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20,

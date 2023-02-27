@@ -452,10 +452,11 @@ class _LoginSignupScreenState extends State<Signuppage> {
             // write the code for firebase auth for custom login and signup here
 
             if (isSignupScreen == false) {
-              print("signin");
+              print("login screen");
               print(emailcontroller.text);
               print(passwordcontroller.text);
-              if (emailcontroller.text.isEmpty) {
+              if (emailcontroller.text.isEmpty ||
+                  passwordcontroller.text.isEmpty) {
                 showDialog(
                   barrierDismissible: true,
                   context: context,
@@ -466,15 +467,25 @@ class _LoginSignupScreenState extends State<Signuppage> {
                           margin: EdgeInsets.only(left: 7),
                           child: Column(
                             children: [
-                              Text(
-                                "email field is empty",
-                                overflow: TextOverflow.visible,
-                                maxLines: 4,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                ),
-                                softWrap: false,
-                              ),
+                              emailcontroller.text.isEmpty
+                                  ? Text(
+                                      "email field is empty",
+                                      overflow: TextOverflow.visible,
+                                      maxLines: 4,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                      softWrap: false,
+                                    )
+                                  : Text(
+                                      "Password field is empty",
+                                      overflow: TextOverflow.visible,
+                                      maxLines: 4,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                      softWrap: false,
+                                    ),
                               Spacer(),
                               ElevatedButton(
                                   onPressed: () {
@@ -489,72 +500,21 @@ class _LoginSignupScreenState extends State<Signuppage> {
                   },
                 );
               } else {
-                showDialog(
-                  barrierDismissible: true,
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      content: Row(
-                        children: [
-                          Container(
-                              margin: EdgeInsets.only(left: 7),
-                              child: Expanded(
-                                child: Text(
-                                  """please enter valid else case details""",
-                                  overflow: TextOverflow.visible,
-                                  maxLines: 4,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                  softWrap: false,
-                                ),
-                              )),
-                        ],
-                      ),
-                    );
-                  },
-                );
+                signInWithEmailAndPassword(
+                    email: emailcontroller.text,
+                    password: passwordcontroller.text);
               }
-              // signInWithEmailAndPassword(
-              //     email: emailcontroller.text,
-              //     password: passwordcontroller.text);
             } else {
               print("signup");
-              // createUserWithEmailAndPassword(
-              //     email: emailcontroller.text,
-              //     password: passwordcontroller.text);
+              createUserWithEmailAndPassword(
+                  email: emailcontroller.text,
+                  password: passwordcontroller.text);
             }
 
             print(usernamecontroller.text);
             print(emailcontroller.text);
             print(passwordcontroller.text);
             print("button pressed");
-            // showDialog(
-            //   barrierDismissible: true,
-            //   context: context,
-            //   builder: (BuildContext context) {
-            //     return AlertDialog(
-            //       content: Row(
-            //         children: [
-            //           Container(
-            //             margin: EdgeInsets.only(left: 7),
-            //             child: Expanded(
-            //               child: Text(
-            //                 """please enter valid details""",
-            //                 overflow: TextOverflow.visible,
-            //                 maxLines: 4,
-            //                 style: TextStyle(
-            //                   fontSize: 16,
-            //                 ),
-            //                 softWrap: false,
-            //               ),
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //     );
-            //   },
-            // );
           }),
           child: Container(
             height: 90,
@@ -637,10 +597,56 @@ class _LoginSignupScreenState extends State<Signuppage> {
         email: email,
         password: password,
       );
-
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
       return auth.currentUser;
     } on FirebaseAuthException catch (e) {
-      throw (e);
+      Navigator.pop(context);
+      AlertDialog alert = AlertDialog(
+        content: Row(
+          children: [
+            Container(
+              height: 150,
+              width: 200,
+              child: Column(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 200,
+                    padding: EdgeInsets.only(right: 13.0),
+                    child: Center(
+                      child: Text(
+                        e.toString(),
+                        overflow: TextOverflow.visible,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontFamily: 'Roboto',
+                          color: Color(0xFF212121),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("ok"))
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
+      print(e);
     }
   }
 

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:sitara_app/widgets.dart/chatmessages.dart';
 
-class Page0 extends StatefulWidget {
+class All extends StatefulWidget {
   @override
-  _Page1State createState() => _Page1State();
+  _AllState createState() => _AllState();
 }
 
-class _Page1State extends State<Page0> {
+class _AllState extends State<All> {
   List imagesString = [
     "assets/poori-masala-kizhangu.jpg",
     "assets/poori-masala-kizhangu.jpg",
