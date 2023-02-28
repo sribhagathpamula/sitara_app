@@ -11,6 +11,7 @@ import 'package:sitara_app/Screens/termspage.dart';
 import 'package:sitara_app/Screens/welcomepage.dart';
 import 'package:sitara_app/main.dart';
 import 'package:sitara_app/main.dart';
+import 'package:sitara_app/main.dart';
 
 import 'package:sitara_app/page/page%204.dart';
 
@@ -19,6 +20,8 @@ import 'package:sitara_app/page/page2.dart';
 import 'package:sitara_app/page/page3.dart';
 import 'package:flutter/material.dart';
 
+import 'main.dart';
+import 'main.dart';
 import 'main.dart';
 import 'main.dart';
 
@@ -72,8 +75,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     ;
     return Container(
-     child:drawer(
-       Color: Colors.black,
+     child: drawer(       
+      // Colors: Colors.black,
+
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -298,12 +302,11 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
 drawer({required Column child}) {
-}
-
-        backgroundColor: Colors.black,
+  backgroundColor: Colors.black;
         body: Center(
             child: Image.asset(
           'assets/20230227_105904.png',
-        )));
-  }
+        ));
 }
+
+        
