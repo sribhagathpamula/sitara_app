@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sitara_app/Screens/orderspage.dart';
 import 'package:sitara_app/Screens/settings_screen.dart';
 import 'package:sitara_app/Screens/sign_up_page.dart';
@@ -9,7 +10,7 @@ import 'package:sitara_app/page/page2.dart';
 import 'package:sitara_app/page/page3.dart';
 import 'package:flutter/material.dart';
 
-import '../page/page0.dart';
+import '../page/all.dart';
 
 class Sitara extends StatelessWidget {
   @override
@@ -68,6 +69,9 @@ class Sitara extends StatelessWidget {
                             ElevatedButton(
                                 onPressed: () async {
                                   final userCredential = await auth.signOut();
+                                  final prefs =
+                                      await SharedPreferences.getInstance();
+                                  await prefs.setBool('UserLogedin', false);
                                   Navigator.pop(context);
                                   Navigator.pop(context);
                                   Navigator.push(

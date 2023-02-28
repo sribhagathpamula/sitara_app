@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sitara_app/Screens/sitara_eclusive.dart';
 import 'package:sitara_app/Screens/welcomepage.dart';
 
@@ -448,7 +449,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
       left: 0,
       child: Center(
         child: InkWell(
-          onTap: (() {
+          onTap: (() async {
             // write the code for firebase auth for custom login and signup here
 
             if (isSignupScreen == false) {
@@ -597,6 +598,8 @@ class _LoginSignupScreenState extends State<Signuppage> {
         email: email,
         password: password,
       );
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('UserLogedin', true);
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Sitara()));
       return auth.currentUser;
