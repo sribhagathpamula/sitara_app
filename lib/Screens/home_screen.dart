@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 
 import '../page/page0.dart';
 
-class HomePage extends StatelessWidget {
+class Sitara extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -162,9 +162,9 @@ class HomePage extends StatelessWidget {
           children: [
             All(),
             BreakFast(),
-            Page2(),
-            Page3(),
-            Page4(),
+            Dinner(),
+            Refreshments(),
+            SitaraExculsive(),
           ],
         ),
       ),

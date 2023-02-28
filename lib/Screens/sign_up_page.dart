@@ -598,7 +598,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
         password: password,
       );
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+          context, MaterialPageRoute(builder: (context) => Sitara()));
       return auth.currentUser;
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
@@ -662,7 +662,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
       );
       if (userCredential != null) {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+            MaterialPageRoute(builder: (BuildContext context) => Sitara()));
       } else {
         Navigator.pop(context);
       }
@@ -738,7 +738,7 @@ Future<void> signup(BuildContext context) async {
 
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+        context, MaterialPageRoute(builder: (context) => Sitara()));
   }
 }
 

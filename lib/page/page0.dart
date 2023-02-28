@@ -11,12 +11,12 @@ class All extends StatefulWidget {
 class _AllState extends State<All> {
   List imagesString = [
     "assets/poori-masala-kizhangu.jpg",
-    "assets/poori-masala-kizhangu.jpg",
+    "assets/istockphoto-1176401949-612x612.jpg",
     'assets/kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-118567640.jpg',
     'assets/burger-vs-sandwhich.jpg',
     'assets/istockphoto-1305452646-170667a.jpg',
-    'assets/burger-vs-sandwhich.jpg',
-    "assets/poori-masala-kizhangu.jpg",
+    'assets/different-types-mojito-cocktail-dark-brown_93675-16775.jpg.webp',
+    "assets/sweet-rabdi-lachha-rabri-basundi-made-with-pure-milk-garnished-with-dry-fruits-served-bowl-moody-background-selective-focus_466689-30649.jpg",
   ];
 
   Widget bottonContainer(

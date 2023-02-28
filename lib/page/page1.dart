@@ -1,87 +1,41 @@
-import 'package:sitara_app/Screens/detailspage.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class BreakFast extends StatefulWidget {
   @override
-  _BreakFastState createState() => _BreakFastState();
+  _Page2State createState() => _Page2State();
 }
 
-class _BreakFastState extends State<BreakFast> {
-  List imagesString = [
-    "assets/poori-masala-kizhangu.jpg",
-    "assets/poori-masala-kizhangu.jpg",
-    'assets/kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-118567640.jpg',
-    'assets/burger-vs-sandwhich.jpg',
-    'assets/istockphoto-1305452646-170667a.jpg',
-    'assets/burger-vs-sandwhich.jpg',
-    "assets/poori-masala-kizhangu.jpg",
-  ];
-
+class _Page2State extends State<BreakFast> {
   Widget bottonContainer(
       {required String image,
       required int price,
       required String name,
       required String discription}) {
     return Container(
-      height: 300,
-      width: 250,
+      height: 270,
+      width: 220,
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: Colors.black87, blurRadius: 5.0),
+            new BoxShadow(color: Colors.black87, blurRadius: 5.0),
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) => DetailPage(
-                            image: image,
-                            name: name,
-                            price: price,
-                            discription: discription,
-                          )));
-            },
-            child: Container(
-              color: Colors.red,
-              height: 350,
-              width: 350,
-              child: ClipRRect(
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
+          ClipRRect(
+            child: Image.asset(image),
+            // backgroundImage: AssetImage(image),
           ),
           ListTile(
             leading: Text(
               name,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-              ),
+              style: TextStyle(fontSize: 20, color: Colors.black),
             ),
             trailing: Text(
               "\Rs.$price",
-              style: TextStyle(fontSize: 16, color: Colors.black),
+              style: TextStyle(fontSize: 20, color: Colors.black),
             ),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.shopping_cart_checkout,
-            ),
-            onPressed: () {
-              // Navigator.push(
-              //     context,
-              //     new MaterialPageRoute(
-              //         builder: (context) => new DetailPage()));
-            },
           ),
         ],
       ),
@@ -90,8 +44,7 @@ class _BreakFastState extends State<BreakFast> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
+    return new Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -101,9 +54,9 @@ class _BreakFastState extends State<BreakFast> {
             child: TextField(
                 decoration: InputDecoration(
                     hintText: "Search Food",
-                    hintStyle: const TextStyle(color: Colors.black),
+                    hintStyle: TextStyle(color: Colors.black),
                     // border: OutlineInputBorder(),
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.search,
                       color: Colors.black,
                     ),
@@ -127,8 +80,7 @@ class _BreakFastState extends State<BreakFast> {
           //     mainAxisAlignment: MainAxisAlignment.center,
           //     children: [
           //       CircleAvatar(
-          //         backgroundImage: AssetImage(
-          //             'assets/chicken-fried-rice-fast-food-style-recipe.png'),
+          //         backgroundImage: AssetImage('assets/img1.png'),
           //       ),
           //       ListTile(
           //         leading: Text(
@@ -143,94 +95,83 @@ class _BreakFastState extends State<BreakFast> {
           //     ],
           //   ),
           // ),
-
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
-            height: 590,
+            height: 570,
             child: GridView.count(
               shrinkWrap: false,
               primary: false,
               crossAxisCount: 1,
               childAspectRatio: 0.8,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20,
               children: [
-                CarouselSlider(
-                  options: CarouselOptions(
-                    height: 300,
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 0.8,
-                    initialPage: 0,
-                    enableInfiniteScroll: false,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enlargeCenterPage: true,
-                    enlargeFactor: 0.4,
-                    scrollDirection: Axis.horizontal,
-                  ),
-                  items: [0, 1, 2, 3, 4].map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
-                          decoration: BoxDecoration(color: Colors.amber),
-                          child: ClipRRect(
-                            child: Image.asset(
-                              imagesString[i],
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  }).toList(),
-                ),
                 bottonContainer(
-                    image: 'assets/poori-masala-kizhangu.jpg',
-                    name: 'Poori Masala',
-                    price: 70,
+                    image: 'assets/istockphoto-1306083224-170667a.jpg',
+                    name: 'Idly',
+                    price: 25,
                     discription:
-                        "Poori Masala is a South Indian dish of curried  potatoes made to serve as a side with poori, an indian fried bread. Poori masala also known as poori curry is made with boiled potatoes, onions, tomatoes, whole species and curry leaves. surprisingly this is one of those dishes made with minimum spices yet it tastes super delicious and flavorsome. so sitara provides u the best poori masala."),
+                        "We could call it freshly steamed savory white cakes made from fermented rice and lentil batter for the gora lag...refresh ur morning with best idly at sitara."),
                 bottonContainer(
-                    image:
-                        'assets/kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-kebab-e-murgh-chicken-kabab-marinated-yogurt-cumin-sauce-118567640.jpg',
-                    name: 'Chicken Dejaj Kebab',
-                    price: 220,
-                    discription:
-                        "Chicken Kebab recipe - Make the best delicious, soft , succulent & flavorful chicken kebabs at sitara. Kebab is a piece of food, mostly meat grilled over charcoal fire. There are so many Kebab varieties out there which are very popular in the sitara dinein and Takeaways. One of the Satisified dish with beer."),
-                bottonContainer(
-                    image: 'assets/istockphoto-1305452646-170667a.jpg',
-                    name: 'Chicken Biriyani',
-                    price: 195,
+                    image: 'assets/pexels-saveurs-secretes-5560763.jpg',
+                    name: 'Dosa',
+                    price: 45,
                     discription:
                         "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
-                    image: 'assets/burger-vs-sandwhich.jpg',
-                    name: 'Burger & Sandwich',
-                    price: 160,
+                    image:
+                        'assets/360_F_280407029_4QDsj9xPmv9yFvsGzSH4UnHo680KjlJe.jpg',
+                    name: 'Pongal',
+                    price: 60,
                     discription:
-                        "Classic Burger with Lettuce, onions,tomatoes & yummy crispy chicken patty filled in with our secret home made mayonnaise between freshly baked hand made buns...Food for the soul.... Temptations will be satisified in Sitara."),
-                bottonContainer(
-                    image: 'assets/52416693.cms.webp',
-                    name: 'Pav Bhaji & Chat Specials',
-                    price: 80,
-                    discription:
-                        "Buttery toasted Pav(2 pieces) served with mashed vegetables cooked in butter & in-house blend of pav bhaji masala accompamied with chopped onions and a wedge of lime.......Taste the real pav bhaji at the Sitara exculsive."),
-                bottonContainer(
-                    image: 'assets/pizza-3007395__480.jpg',
-                    name: 'Pizza',
-                    price: 140,
-                    discription:
-                        "You Name It and we load it! A pizza Baked with Tomato sauce,Mozzarella Cheese,Capsicum,Onion,Tomato,Jalapeno and Olives(Served with complimentary Garlic oil)....and you can customize ur pizza with different add on's panner , mushroom , chicken , bbq chicken etc at ur favorite sitara"),
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
                     image:
-                        'assets/different-types-mojito-cocktail-dark-brown_93675-16775.jpg.webp',
-                    name: 'Mojitos',
-                    price: 110,
+                        'assets/36155acb0f7245844f6e5ba27031b5a1_featured_v2.jpg.webp',
+                    name: 'Kodi Kura & Chitti garee',
+                    price: 90,
                     discription:
-                        "Mojitos are bubbly rum cocktails that taste minty-fresh, citrusy and a little sweet. Club soda stretches out the flavors to create an afternoon-worthy sipper. Mojitos are ultra refreshing on warm days, and I feel like I’m on vacation every time I get my hands on one..... Taste the best and refreshing mojitos at the sitara(with alcohol or non-alcohol)"),
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/maxresdefault.jpg',
+                    name: 'Pesarattu & upma',
+                    price: 70,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        'assets/onion-dosa-plain-recipe-finely-chopped-topping-over-which-gives-very-yummy-taste-also-can-be-eaten-195902443.jpg',
+                    name: 'Onion Dosa',
+                    price: 70,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        'assets/360_F_189452136_gJBG4ZRXY9NnZZCGV2s8QhObmpeerJTO.jpg',
+                    name: 'Masala Dosa',
+                    price: 80,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        'assets/Instant-Rava-Dosa-Recipe-Onion-Rava-Dosa-V1.jpg',
+                    name: 'Rava Dosa',
+                    price: 80,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/chicken-dosa.jpg',
+                    name: 'Chicken Keema Dosa',
+                    price: 90,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image:
+                        'assets/rice-puri-with-mutton-curry-noorsrecipes.jpeg',
+                    name: 'Poori with Mutton Curry',
+                    price: 190,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
               ],
             ),
           )

@@ -1,12 +1,12 @@
 import 'package:sitara_app/Screens/detailspage.dart';
 import 'package:flutter/material.dart';
 
-class Page4 extends StatefulWidget {
+class SitaraExculsive extends StatefulWidget {
   @override
   _Page4State createState() => _Page4State();
 }
 
-class _Page4State extends State<Page4> {
+class _Page4State extends State<SitaraExculsive> {
   Widget bottonContainer(
       {required String image,
       required int price,
@@ -118,61 +118,64 @@ class _Page4State extends State<Page4> {
               mainAxisSpacing: 20,
               children: [
                 bottonContainer(
-                    image: 'assets/neapolitan-ice-cream-15779155.jpg',
-                    name: 'Ice Cream',
-                    price: 110,
+                    image: 'assets/istockphoto-1176401949-612x612.jpg',
+                    name: 'Beer with chicken starter',
+                    price: 290,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/61rN2hbnphL._SL1350_.jpg',
+                    name: 'Kaju Chicken Pakodi with Assorted Beer',
+                    price: 240,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/istockphoto-1176401949-612x612.jpg',
+                    name: 'Red wine with Buffalo chicken wings',
+                    price: 480,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/THESPICYVENUE.jpeg',
+                    name: 'Mla Potlam Biriynai with assorted beer',
+                    price: 550,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/istockphoto-1178035270-170667a.jpg',
+                    name: 'Barcadi with fish n chips',
+                    price: 410,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/istockphoto-1202356083-170667a.jpg',
+                    name: 'Pizza with Rich Wine',
+                    price: 620,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/drink-taco_hero.jpg',
+                    name: 'Margarita cocktail and tacos.',
+                    price: 470,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: ' assets/sushi-und-wein.jpeg',
+                    name: 'White wine and sushi.',
+                    price: 580,
+                    discription:
+                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
+                bottonContainer(
+                    image: 'assets/Toddy-825x510.jpg ',
+                    name: 'thati kallu with chicken curry',
+                    price: 290,
                     discription:
                         "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
                 bottonContainer(
                     image:
-                        'assets/82388961-poznan-poland-may-19-2017-global-soft-drink-market-is-dominated-by-brands-of-few-multinational.jpg',
-                    name: 'soft Drinks',
-                    price: 30,
-                    discription:
-                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
-                bottonContainer(
-                    image:
-                        'assets/Simply-Recipes-Mango-Daiquiri-LEAD-3-96096b8ecf9f46d0a55f78ea7abe7289.jpg',
-                    name: 'Mango Daiquiri',
-                    price: 180,
-                    discription:
-                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
-                bottonContainer(
-                    image: 'assets/khubani-ka-meetha-recipe-3.jpg',
-                    name: 'Khubani Ka Meeta',
-                    price: 100,
-                    discription:
-                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
-                bottonContainer(
-                    image: 'assets/Pink-Lady-Cocktail-Square-1.jpg',
-                    name: 'Pink Lady',
-                    price: 110,
-                    discription:
-                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
-                bottonContainer(
-                    image: 'assets/Shahi-Hot-Gulabjamun-with-I.jpg',
-                    name: 'Gulab Jamun with Ice cream',
-                    price: 120,
-                    discription:
-                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
-                bottonContainer(
-                    image: 'assets/istockphoto-499515902-612x612.jpg',
-                    name: 'Fresh Desi Lassi',
-                    price: 70,
-                    discription:
-                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
-                bottonContainer(
-                    image:
-                        ' assets/Recipe_For_Beginners_Fruit_Custard_Recipe_With_Custard_Powder-1.jpg',
-                    name: 'Custard Bowl',
-                    price: 80,
-                    discription:
-                        "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
-                bottonContainer(
-                    image:
-                        'assets/sweet-rabdi-lachha-rabri-basundi-made-with-pure-milk-garnished-with-dry-fruits-served-bowl-moody-background-selective-focus_466689-30649.jpg ',
-                    name: 'Rabdi',
-                    price: 90,
+                        'assets/mystery-meal-on-dining-set-260nw-354344162.jpg.webp ',
+                    name: 'Sitara Mysetry drink with starter',
+                    price: 390,
                     discription:
                         "Chicken Pieces marinated with a blend of species, layered with the finest basmati rice and dum cooked with safroon an d ghee. Smells like paradise and tastes like heaven exculsively in Sitara."),
               ],
