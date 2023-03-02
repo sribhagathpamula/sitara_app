@@ -47,11 +47,18 @@ class Sitara extends StatelessWidget {
                 Icons.shopping_cart_checkout,
                 size: 30,
               ),
+
+
+
+
               onPressed: () {
                 // cart pages here
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CheckoutPage(Items: AddTocart.,)));
+                // Navigator.push(context,
+                    // MaterialPageRoute(builder: (context) => CheckoutPage(Items: AddTocart.,)));
               },
+
+
+
             ),
           ],
           bottom: const TabBar(
