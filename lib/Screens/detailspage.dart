@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../CartFunction.dart';
+
 class DetailPage extends StatefulWidget {
   var image;
 
@@ -41,7 +43,7 @@ class _DetailPageState extends State<DetailPage> {
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepOrangeAccent,
+                    color: Color.fromARGB(255, 163, 57, 24),
                   ),
                 ),
               ],
@@ -55,28 +57,31 @@ class _DetailPageState extends State<DetailPage> {
       padding: const EdgeInsets.all(32),
       child: Text(
         widget.discription,
-        // '\n \n मिसळ पाव कडधान्यांची रस्सा असलेली उसळ, पोहे, त्यावर भेळ व फरसाण फरसाण घालून पावासोबत खाल्ला जात असलेला पदार्थ. हा पदार्थ तसा आधुनिक पाककृती आहे. परंतु मसालेदार चव व सहजतेने उपलब्धता यामुळे प्रसिद्ध आहे. यात कोल्हापूरी मिसळ, पुणेरी मिसळ,नाशिक मिसळ, दही मिसळ,नादखुळा मिसळ,गुजराती मिसळ,फराळी मिसळ इत्यादी प्रकारही केले जातात.',
         softWrap: true,
       ),
     );
 
     Widget buttonsection = Container(
       padding: const EdgeInsets.all(5),
-      child: RaisedButton(
-        textColor: Colors.white,
-        color: Colors.red,
+      child: ElevatedButton(
         child: Text('Add To Cart'),
-        onPressed: () {},
+        onPressed: () {
+          Map<String, dynamic> item = {
+            "Itemname": widget.name,
+            "ItemPrice": widget.price
+          };
+          AddTocart(item: item);
+        },
       ),
     );
 
-    return new Scaffold(
-      appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
         title: new Text(widget.name),
       ),
-      body: ListView(
+      body: Column(
         children: [
           Image.asset(
             widget.image,
@@ -86,15 +91,9 @@ class _DetailPageState extends State<DetailPage> {
           ),
           titleSection,
           textSection,
-          buttonsection,
+          Container(width: 150, child: buttonsection),
         ],
       ),
     );
   }
-
-  RaisedButton(
-      {required Color textColor,
-      required MaterialColor color,
-      required Text child,
-      required Null Function() onPressed}) {}
 }

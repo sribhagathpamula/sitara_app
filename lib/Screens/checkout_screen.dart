@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 
-// navigation and color should be altered
-// food and prices should be added and changed 
-// code used to add items using list
-// ListTile(
-//               leading: Icon(Icons.fastfood),
-//               title: Text('Tandoori'),
-//               trailing: Text('\₹230.00'),
-//             ),
-
 class CheckoutPage extends StatefulWidget {
+  const CheckoutPage({required Items});
+
   @override
-  _CheckoutPageState createState() => _CheckoutPageState();
+  State<CheckoutPage> createState() => _CheckoutPageState();
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
@@ -37,7 +30,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               title: Text('Pizza'),
               trailing: Text('\₹10.00'),
             ),
-             ListTile(
+            ListTile(
               leading: Icon(Icons.fastfood),
               title: Text('Tandoori'),
               trailing: Text('\₹230.00'),
@@ -95,5 +88,20 @@ class _CheckoutPageState extends State<CheckoutPage> {
         ),
       ),
     );
+    ;
   }
 }
+
+
+// class CheckoutPage extends StatefulWidget {
+
+//   @override
+//   // ignore: library_private_types_in_public_api
+//   _CheckoutPageState createState({required Items}) => _CheckoutPageState();
+// }
+
+// class _CheckoutPageState extends State<CheckoutPage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return }
+// }

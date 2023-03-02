@@ -44,32 +44,32 @@ class _Page2State extends State<BreakFast> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           // Container(height: 0.0),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: TextField(
-                decoration: InputDecoration(
-                    hintText: "Search Food",
-                    hintStyle: TextStyle(color: Colors.black),
-                    // border: OutlineInputBorder(),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    filled: true,
-                    // contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderRadius: BorderRadius.circular(10.0),
-                    //     borderSide: BorderSide(color: Colors.white, width: 3.0)),
-                    fillColor: Colors.black12,
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10)))),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 5),
+          //   child: TextField(
+          //       decoration: InputDecoration(
+          //           hintText: "Search Food",
+          //           hintStyle: TextStyle(color: Colors.black),
+          //           // border: OutlineInputBorder(),
+          //           prefixIcon: Icon(
+          //             Icons.search,
+          //             color: Colors.black,
+          //           ),
+          //           filled: true,
+          //           // contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          //           // enabledBorder: OutlineInputBorder(
+          //           //     borderRadius: BorderRadius.circular(10.0),
+          //           //     borderSide: BorderSide(color: Colors.white, width: 3.0)),
+          //           fillColor: Colors.black12,
+          //           border: OutlineInputBorder(
+          //               borderSide: BorderSide.none,
+          //               borderRadius: BorderRadius.circular(10)))),
+          // ),
           // Container(
           //   height: 270,
           //   width: 220,

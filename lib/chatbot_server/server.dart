@@ -4,7 +4,7 @@ import 'dart:convert';
 Future<String> generateResponse(String input) async {
   // to get api key link
   //https://platform.openai.com/account/api-keys
-  const apiKey = "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";
+  const apiKey = "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";
 
   var url = Uri.https("api.openai.com", "/v1/completions");
   final response = await http.post(

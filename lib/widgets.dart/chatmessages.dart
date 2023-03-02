@@ -1,8 +1,8 @@
 import 'package:sitara_app/Screens/customer_support_screen.dart';
 import 'package:flutter/material.dart';
 
-const backgroundColor = Color(0xff343541);
-const botBackgroundColor = Color.fromARGB(255, 255, 255, 255);
+const backgroundColor = Colors.white;
+const botBackgroundColor = Colors.white;
 
 class ChatMessageWidget extends StatelessWidget {
   ChatMessageWidget(
@@ -23,9 +23,13 @@ class ChatMessageWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           chatMessageType == ChatMessageType.bot
-              ? const CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://openai.com/content/images/2022/05/openai-avatar.png'),
+              ? Container(
+                  margin: const EdgeInsets.only(right: 16.0),
+                  child: const CircleAvatar(
+                    child: Icon(
+                      Icons.contact_support,
+                    ),
+                  ),
                 )
               : Container(
                   margin: const EdgeInsets.only(right: 16.0),
@@ -49,7 +53,7 @@ class ChatMessageWidget extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge
-                        ?.copyWith(color: Colors.white),
+                        ?.copyWith(color: Colors.black),
                   ),
                 ),
               ],

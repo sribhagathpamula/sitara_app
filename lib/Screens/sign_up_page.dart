@@ -664,6 +664,8 @@ class _LoginSignupScreenState extends State<Signuppage> {
         password: password,
       );
       if (userCredential != null) {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('UserLogedin', true);
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (BuildContext context) => Sitara()));
       } else {
@@ -738,7 +740,8 @@ Future<void> signup(BuildContext context) async {
     UserCredential result = await auth.signInWithCredential(authCredential);
     User? user = result.user;
     print(user);
-
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('UserLogedin', true);
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => Sitara()));
