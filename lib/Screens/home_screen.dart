@@ -1,16 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sitara_app/Screens/cartpage.dart';
+import 'package:sitara_app/Screens/checkout_screen.dart';
 import 'package:sitara_app/Screens/orderspage.dart';
 import 'package:sitara_app/Screens/settings_screen.dart';
 import 'package:sitara_app/Screens/sign_up_page.dart';
-import 'package:sitara_app/page/page%204.dart';
+import 'package:sitara_app/main.dart';
+import 'package:sitara_app/page/sitaraexculsive.dart';
 
-import 'package:sitara_app/page/page1.dart';
-import 'package:sitara_app/page/page2.dart';
-import 'package:sitara_app/page/page3.dart';
+import 'package:sitara_app/page/Breakfast.dart';
+import 'package:sitara_app/page/Dinner.dart';
+import 'package:sitara_app/page/refreshments.dart';
 import 'package:flutter/material.dart';
+import 'package:sitara_app/widgets.dart/chatmessages.dart';
+import 'package:sitara_app/widgets.dart/drawer.dart';
 
+import '../CartFunction.dart';
 import '../page/all.dart';
+import 'customer_support_screen.dart';
 
 class Sitara extends StatelessWidget {
   @override
@@ -18,8 +25,9 @@ class Sitara extends StatelessWidget {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
+        drawer: CDrawer(),
         appBar: AppBar(
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
           centerTitle: true,
           backgroundColor: Colors.black,
           elevation: 0,
@@ -36,63 +44,13 @@ class Sitara extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(
-                Icons.logout,
+                Icons.shopping_cart_checkout,
                 size: 30,
               ),
               onPressed: () {
-                AlertDialog alert = AlertDialog(
-                  content: Row(
-                    children: [
-                      Container(
-                        height: 150,
-                        width: 200,
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 100,
-                              width: 200,
-                              padding: EdgeInsets.only(right: 13.0),
-                              child: const Center(
-                                child: Text(
-                                  "are you sure want to logout",
-                                  overflow: TextOverflow.visible,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 16.0,
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFF212121),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            ElevatedButton(
-                                onPressed: () async {
-                                  final userCredential = await auth.signOut();
-                                  final prefs =
-                                      await SharedPreferences.getInstance();
-                                  await prefs.setBool('UserLogedin', false);
-                                  Navigator.pop(context);
-                                  Navigator.pop(context);
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Signuppage()));
-                                },
-                                child: Text("ok"))
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-                showDialog(
-                  barrierDismissible: false,
-                  context: context,
-                  builder: (BuildContext context) {
-                    return alert;
-                  },
-                );
+                // cart pages here
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CheckoutPage(Items: AddTocart.,)));
               },
             ),
           ],
@@ -160,7 +118,7 @@ class Sitara extends StatelessWidget {
                   ),
                 ),
               ]),
-          title: const Text("Home Page"),
+          title: const Text("Sitara"),
         ),
         body: TabBarView(
           children: [
