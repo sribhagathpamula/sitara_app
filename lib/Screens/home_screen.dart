@@ -53,8 +53,8 @@ class Sitara extends StatelessWidget {
 
               onPressed: () {
                 // cart pages here
-                // Navigator.push(context,
-                    // MaterialPageRoute(builder: (context) => CheckoutPage(Items: AddTocart.,)));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CheckoutPage(Items: AddTocart.,)));
               },
 
 
